@@ -1,4 +1,4 @@
-Size	  Bubble Sort	Selection Sort	Insertion Sort
+Size	Bubble Sort	Selection Sort	Insertion Sort
 50	113315.79	48982.445	107128.66
 100	122749.48	35896.15	310718.03
 150	343200.44	130806.47	83147.14
