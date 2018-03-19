@@ -27,7 +27,7 @@ public class IntegerSorterTester {
 	private static void test(String msg, Comparator<Integer> cmp) { 
 		rnd = new Random(101); 
 
-		System.out.println("\n\n*******************************************************");
+		System.out.println("*******************************************************");
 		System.out.println("*** " + msg + "  ***");
 		System.out.println("*******************************************************");
 		

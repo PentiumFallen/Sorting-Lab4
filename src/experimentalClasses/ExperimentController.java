@@ -20,9 +20,9 @@ import dataGenerator.DataGenerator;
 public class ExperimentController{
 	
 	private int initialSize;           // initial size to be tested
-	private int repetitionsPerSize;    // experimental repetitions per size
-	private int incrementalSizeStep;   // change of sizes (size delta)
 	private int finalSize;             // last size to be tested
+	private int incrementalSizeStep;   // change of sizes (size delta)
+	private int repetitionsPerSize;    // experimental repetitions per size
 	
 	private ArrayList<StrategiesTimeCollection<Integer>> resultsPerStrategy; 
 	// The i-th position will contain a particular strategy being tested. 
@@ -32,9 +32,9 @@ public class ExperimentController{
 	
 	public ExperimentController(int is, int fs, int iss, int rps) { 
 		initialSize = is; 
-		repetitionsPerSize = rps; 
-		incrementalSizeStep = iss; 
 		finalSize = fs; 
+		incrementalSizeStep = iss; 
+		repetitionsPerSize = rps; 
 		resultsPerStrategy = new ArrayList<>(); 
 		
         //JPanel pane = new JPanel();      // this was intended for a progress bar....
@@ -102,16 +102,19 @@ public class ExperimentController{
 	public void saveResults() throws FileNotFoundException { 
 		
 		PrintStream out = new PrintStream(new File("experimentalResults", "allResults.txt"));
-		out.print("Size");
+		out.print("Size ");
 		for (StrategiesTimeCollection<Integer> trc : resultsPerStrategy) 
-			out.print("\t" + trc.getStrategyName()); 
+			out.print(trc.getStrategyName()+"\t\t"); 
 		out.println();
 
 		int numberOfExperiments = resultsPerStrategy.get(0).size(); 
 		for (int i=0; i<numberOfExperiments; i++) {
-			out.print(resultsPerStrategy.get(0).get(i).getKey());
+			if (i!=numberOfExperiments-1) 
+				out.print(resultsPerStrategy.get(0).get(i).getKey()+"\t\t");
+			else 
+				out.print(resultsPerStrategy.get(0).get(i).getKey()+"0\t");
 			for (StrategiesTimeCollection<Integer> trc : resultsPerStrategy)
-				out.print("\t" + trc.get(i).getValue());
+				out.print(trc.get(i).getValue()+"\t\t");
 			out.println(); 
 		}
 			

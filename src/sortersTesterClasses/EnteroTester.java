@@ -11,8 +11,19 @@ public class EnteroTester {
 		for (int i=0; i<13; i++){
 			test[i]=new Entero(initial[i]);
 		}
-		System.out.println(initial.toString());
+		showArray("Original array of size "+initial.length+": ", initial);
 		BubbleSortSorter<Entero> sorter = new BubbleSortSorter<>();
 		sorter.sort(test, null);
 	}
+	
+	private static void showArray(String msg, Integer[] a) {
+		System.out.print(msg+"{"); 
+		for (int i=0; i<a.length; i++) {
+			System.out.print(a[i]);
+			if (i!=a.length-1) 
+				System.out.print(", ");
+		}
+		System.out.println("}");
+	}
+
 }
